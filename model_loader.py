@@ -11,8 +11,10 @@ import os
 from typing import Tuple, Any
 
 
-MODEL_PATH = "Drug_sideeffect_model.pkl"
-SCALER_PATH = "scaler.pkl"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "Drug_sideeffect_model.pkl")
+SCALER_PATH = os.path.join(BASE_DIR, "scaler.pkl")
 
 
 @st.cache_resource(show_spinner=False)

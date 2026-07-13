@@ -14,9 +14,11 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 from typing import Dict, Any, Optional
 import warnings
+import os
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-DATASET_PATH = "drug_side_effects_100k_dataset.csv"
+DATASET_PATH = os.path.join(BASE_DIR, "drug_side_effects_100k_dataset.csv")
 
 # ── Single source of truth for tested model accuracy ──────────────────────────
 TESTING_ACCURACY: float = 78.2
@@ -384,9 +386,10 @@ def make_probability_bar(prob_adverse: float, prob_positive: float) -> go.Figure
 # ── CSS helper ────────────────────────────────────────────────────────────────
 
 def load_css(path: str = "assets/style.css") -> None:
-    """Inject custom CSS from file into the Streamlit app."""
+    css_path = os.path.join(BASE_DIR, path)
+
     try:
-        with open(path) as f:
+        with open(css_path) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     except FileNotFoundError:
-        pass  # CSS is optional; skip silently
+        pass
