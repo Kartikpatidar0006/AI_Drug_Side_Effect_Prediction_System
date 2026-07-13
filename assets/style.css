@@ -655,6 +655,49 @@ html, body, [data-testid="stAppViewContainer"] {
     box-shadow: 0 0 0 3px var(--primary-light) !important;
 }
 
+/* Fix: Make selectbox selected value text visible */
+[data-testid="stSelectbox"] span,
+[data-testid="stSelectbox"] p,
+[data-testid="stSelectbox"] div[data-baseweb="select"] span,
+[data-testid="stSelectbox"] div[data-baseweb="select"] div,
+[data-testid="stSelectbox"] [data-baseweb="select"] > div > div {
+    color: var(--text) !important;
+}
+
+/* Fix: Dropdown arrow icon */
+[data-testid="stSelectbox"] svg {
+    fill: var(--text-muted) !important;
+    color: var(--text-muted) !important;
+}
+
+/* Fix: Dropdown popup list items */
+[data-baseweb="popover"] li,
+[data-baseweb="popover"] [role="option"],
+[data-baseweb="menu"] li,
+[data-baseweb="menu"] [role="option"] {
+    color: var(--text) !important;
+    background: var(--bg-card) !important;
+    font-family: var(--font-main) !important;
+    font-size: 0.9rem !important;
+}
+
+[data-baseweb="popover"] li:hover,
+[data-baseweb="popover"] [role="option"]:hover,
+[data-baseweb="menu"] li:hover,
+[data-baseweb="menu"] [role="option"]:hover {
+    background: var(--primary-light) !important;
+    color: var(--primary) !important;
+}
+
+/* ── Nuclear fix: force all selectbox children to have visible text ── */
+[data-testid="stSelectbox"] * {
+    color: #1E293B !important;
+}
+[data-testid="stSelectbox"] svg * {
+    fill: #64748B !important;
+}
+
+
 /* Slider track */
 [data-testid="stSlider"] [role="slider"] {
     background: var(--primary) !important;
